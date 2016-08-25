@@ -88,3 +88,19 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+
+# Those lines were added for working with emacs software
+# They were'nt part of the original gitignore file...
+# -*- mode: gitignore; -*-
+*~
+
+# the next line is used to ignore the temporal files of emacs
+\#*\#
+
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+#tramp
+.\#*
