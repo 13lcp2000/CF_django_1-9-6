@@ -1,0 +1,6 @@
+
+Django==1.9.6		# very usefull
+gunicorn==18.0 		# optional package
+honcho==0.5.0   	# optional package
+psycopg2==2.6.1		# It's tricky to install
+pkg-resources==0.0.0 	# installed by default
