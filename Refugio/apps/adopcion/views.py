@@ -4,7 +4,7 @@ from __future__ import absolute_import
 
 from django.http import HttpResponseRedirect #, HttpResponse
 from django.core.urlresolvers import reverse_lazy
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 from apps.adopcion.models import Persona, Solicitud
 from apps.adopcion.forms import PersonaForm, SolicitudForm 
@@ -78,3 +78,8 @@ class SolicitudUpdate(UpdateView):
 				return HttpResponseRedirect(self.get_success_url())
 			else: 
 				return HttpResponseRedirect(self.get_success_url())
+
+class SolicitudDelete(DeleteView):
+	model = Solicitud
+	template_name = 'adopcion/solicitud_delete2.html'
+	success_url = reverse_lazy('adopcion:solicitud_listar')
