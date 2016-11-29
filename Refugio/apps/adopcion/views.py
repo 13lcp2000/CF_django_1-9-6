@@ -4,7 +4,7 @@ from __future__ import absolute_import
 
 from django.http import HttpResponseRedirect #, HttpResponse
 from django.core.urlresolvers import reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import ListView, CreateView
 
 from apps.adopcion.models import Solicitud
 from apps.adopcion.forms import PersonaForm, SolicitudForm 
@@ -14,6 +14,9 @@ from apps.adopcion.forms import PersonaForm, SolicitudForm
 def index_adopcion(request):
     return HttpResponse("This is the index_adopcion funtion working xD")
 
+class SolicitudList(ListView):
+	model = Solicitud
+	template_name = 'adopcion/solicitud_list.html'
 
 class SolicitudCreate(CreateView):
 	model = Solicitud
