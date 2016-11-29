@@ -1,5 +1,5 @@
 from __future__ import unicode_literals
-
+from __future__ import absolute_import
 from django.db import models
 
 # Create your models here.
@@ -16,3 +16,12 @@ class Persona(models.Model):
 	#def __init__(self, arg):
 	#	super(ClassName, self).__init__()
 	#	self.arg = arg
+
+	def __unicode__(self):
+		return '{} {}'.format(self.nombre, self.apellidos)
+
+class Solicitud(models.Model):
+	"""esta es la solicitud"""
+	persona = models.ForeignKey(Persona, null=True, blank=True)
+	numero_mascotas = models.IntegerField()
+	razones = models.TextField()
