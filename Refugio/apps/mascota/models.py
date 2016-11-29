@@ -13,6 +13,10 @@ class Vacuna(models.Model):
 	"""docstring for ClassName"""
 	nombre = models.CharField(max_length=50)
 
+	def __unicode__(self):
+		return '{}'.format(self.nombre)
+
+
 class Mascota(models.Model):
 	"""clase que me permite generar una mascota"""
 	nombre = models.CharField(max_length=50)
