@@ -4,7 +4,7 @@ from __future__ import absolute_import
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.core.urlresolvers import reverse_lazy
-
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 from apps.mascota.forms import MascotaForm
 from apps.mascota.models import Mascota
@@ -49,4 +49,29 @@ def mascota_delete(request, id_mascota):
 		mascota.delete()
 		return redirect('mascota:mascota_listar')
 	return render(request, 'mascota/mascota_delete.html', {'mascota':mascota})
-		
+
+class MascotaList(ListView):
+	"""Esta vista no ordena matricez y es una vista basada en clase"""
+	model = Mascota
+	template_name = 'mascota/mascota_list2.html'
+
+class MascotaCreate(CreateView):
+	"""Esta la vista basada en clase de las mascotas"""
+	model = Mascota
+	form_class = MascotaForm
+	template_name = 'mascota/mascota_form2.html'
+	success_url = reverse_lazy('mascota:mascota_listar2')
+
+class MascotaUpdate(UpdateView):
+	"""clase para actualizar la mascota"""
+	model = Mascota
+	form_class = MascotaForm
+	template_name = 'mascota/mascota_form2.html'
+	success_url = reverse_lazy('mascota:mascota_listar2')
+
+class MascotaDelete(DeleteView):
+	"""clase para eliminar la mascota del sistema"""
+	model = Mascota
+	#form_class = MascotaForm
+	template_name = 'mascota/mascota_delete2.html'
+	success_url = reverse_lazy('mascota:mascota_listar2')		
