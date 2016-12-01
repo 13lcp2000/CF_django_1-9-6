@@ -1,0 +1,11 @@
+{% extends 'base/base2.html' %}
+
+{% block content %}
+<h1><Strong>Este es el mascota_delete2</Strong></h1>
+<form method="post">
+	{% csrf_token %}
+	<h4>¿Desea eliminar la solicitud de {{object.persona.nombre}} {{object.persona.apellidos}}? </h4>
+	<button class="btn btn-danger" type="submit">Si, Eliminar</button>
+	<a class="btn btn-default" href="{ url 'adopcion:solicitud_listar'}">Cancelar</a>
+</form>
+{% endblock %} 
