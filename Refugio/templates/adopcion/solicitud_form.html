@@ -1,0 +1,17 @@
+{% extends 'base/base2.html' %}
+
+{% block content %}
+<form method="post">
+	{% csrf_token %}
+	<!-- #{{ form2.as_p }} -->
+	<!-- #{{ form.as_p }} -->
+	<div class="row">
+		<div class="form-group">
+			<label for="{{form2.nombre.name}}">
+				{{ form2.nombre.label }}
+			</label>{{ form2.nombre }} 
+		</div>
+	</div>
+	<button type="submit">Guardar</button>
+</form>
+{% endblock %}
